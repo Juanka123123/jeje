@@ -1,0 +1,18 @@
+<html>
+<head> 
+    <title>Editar gato</title>
+</head>
+   
+<body>
+	<h1>Editar gato</h1>
+    <form th:action="@{/update}" th:object="${gato}" th:method="POST">
+    	<p>Nombre <span class="blue"></span>: <input type="text" th:field="${gato.nombre}" /></p>
+        <p>Edad: <input type="text" th:field="${gato.edad}" /></p>
+        <p>Color: <input type="text" th:field="${gato.color}" /></p>
+        <p>Raza: <input type="text" th:field="${gato.Raza}" /></p>
+        <label>Id</label> <input type="number" th:field="*{id}" autofocus="autofocus" readonly placeholder="ID"/>
+        <p><input type="submit" value="Guardar cambios" /> <input type="reset" value="Reset cambios" /></p>
+    </form>
+    <a th:href="@{/listGato}">Atras</a>
+</body>
+</html>

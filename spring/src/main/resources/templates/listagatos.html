@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Lista gatos</title>
+
+    </head>
+    <body>
+        <table border="1">
+            <caption>Lista gatos</caption>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Color</th>
+                    <th>Raza</th>
+                    <th>Operacion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="gato : ${gatos}">
+                    <td th:text="${gato.nombre}"></td>
+                    <td th:text="${gato.edad}"></td>
+                    <td th:text="${gato.color}"></td>
+                    <td th:text="${gato.Raza}"></td>
+                    <td>
+                        <form th:action="@{/rgato/{id}(id=${gato.id})}" th:method="POST">
+                            <input type="submit" value="Eliminar" />
+                        </form>
+                        <form th:action="@{/egato/{id}(id=${gato.id})}" th:method="GET">
+                            <input type="submit" value="Editar" />
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+        <a th:href="@{/nuevogato}">Nuevo gato</a>
+        <a th:href="@{/listGato}">Atras</a>
+
+    </body>
+</html>
